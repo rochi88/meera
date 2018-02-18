@@ -1,3 +1,5 @@
+<?php defined( 'ABSPATH' ) OR die( 'This script cannot be accessed directly.' ); ?>
+
 <?php
 /*
 All the functions are in the PHP pages in the `functions/` folder.
