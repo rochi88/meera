@@ -1,4 +1,4 @@
-<?php defined( 'ABSPATH' ) OR die( 'This script cannot be accessed directly.' ); ?>
+<?php defined( 'ABSPATH' ) OR die( 'This script cannot be accessed directly.' );
 
 <?php global $meera_options_proya, $wp_query, $meeraIconCollections; ?>
 <!DOCTYPE html>
