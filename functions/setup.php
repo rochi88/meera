@@ -1,21 +1,73 @@
 <?php
 
+if ( ! function_exists ('meera_setup')) :
+	/**
+	 * Sets up theme defaults and registers support for various WordPress features.
+	 *
+	 * Note that this function is hooked into the after_setup_theme hook, which
+	 * runs before the init hook. The init hook is too late for some features, such
+	 * as indicating support for post thumbnails.
+	 */
 function meera_setup() {
-	add_editor_style('theme/css/editor-style.css');
-	add_theme_support('post-thumbnails');
-	update_option('thumbnail_size_w', 170);
-	update_option('medium_size_w', 470);
-	update_option('large_size_w', 970);
-}
-add_action('init', 'meera_setup');
+		/*
+ 		* Make theme available for translation.
+ 		* Translations can be filed in the /languages/ directory.
+ 		*/
+		load_theme_textdomain( 'meera', get_template_directory() . '/languages' );
 
-if (! isset($content_width))
-	$content_width = 600;
+		// Add default posts and comments RSS feed links to head.
+		add_theme_support( 'automatic-feed-links' );
 
-function meera_excerpt_readmore() {
-	return '&nbsp; <a href="'. get_permalink() . '">' . '&hellip; ' . __('Read more', 'meera') . ' <i class="fa fa-arrow-right"></i>' . '</a></p>';
+		/*
+		 * Let WordPress manage the document title.
+		 * By adding theme support, we declare that this theme does not use a
+		 * hard-coded <title> tag in the document head, and expect WordPress to
+		 * provide it for us.
+		 */
+		add_theme_support( 'title-tag' );
+
+		//Allows theme developers to link a custom stylesheet file to the TinyMCE visual editor.
+		add_editor_style('theme/css/editor-style.css');
+
+		/*
+		 * Enable support for Post Thumbnails on posts and pages.
+		 *
+		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		 */
+		 add_theme_support('post-thumbnails');
+
+		 // This theme uses wp_nav_menu() in one location.
+		register_nav_menus( array(
+			'menu-1' => esc_html__( 'Primary', 'meera' ),
+		) );
+
+		 /*
+		 * Switch default core markup for search form, comment form, and comments
+		 * to output valid HTML5.
+		 */
+		add_theme_support( 'html5', array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		) );
+
+		/**
+		 * Add support for core custom logo.
+		 *
+		 * @link https://codex.wordpress.org/Theme_Logo
+		 */
+		add_theme_support( 'custom-logo', array(
+			'height'      => 250,
+			'width'       => 250,
+			'flex-width'  => true,
+			'flex-height' => true,
+			) );
+
 }
-add_filter('excerpt_more', 'meera_excerpt_readmore');
+endif;
+add_action('after_setup_theme', 'meera_setup');
 
 // Add post formats support. See http://codex.wordpress.org/Post_Formats
 add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'));

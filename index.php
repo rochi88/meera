@@ -1,30 +1,45 @@
-<?php defined( 'ABSPATH' ) OR die( 'This script cannot be accessed directly.' );
+<?php defined( 'ABSPATH' ) OR die( 'This script cannot be accessed directly.' ); ?>
 
 
 <?php get_header(); ?>
 
-<?php
-global $wp_query;
-$id = $wp_query->get_queried_object_id();
-$sidebar = get_post_meta($id, "qode_show-sidebar", true);
+div id="primary" class="content-area">
+		<main id="main" class="site-main">
 
-if ( get_query_var('paged') ) { $paged = get_query_var('paged'); }
-elseif ( get_query_var('page') ) { $paged = get_query_var('page'); }
-else { $paged = 1; }
+		<?php
+		if ( have_posts() ) :
 
-$blog_hide_comments = "";
-if (isset($qode_options_proya['blog_hide_comments']))
-	$blog_hide_comments = $qode_options_proya['blog_hide_comments'];
+			if ( is_home() && ! is_front_page() ) : ?>
+				<header>
+					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+				</header>
 
-if(isset($qode_options_proya['blog_page_range']) && $qode_options_proya['blog_page_range'] != ""){
-	$blog_page_range = $qode_options_proya['blog_page_range'];
-} else{
-	$blog_page_range = $wp_query->max_num_pages;
-}
-?>
+			<?php
+			endif;
 
-<div class="container">
+			/* Start the Loop */
+			while ( have_posts() ) : the_post();
 
-</div><!-- /.container -->
+				/*
+				 * Include the Post-Format-specific template for the content.
+				 * If you want to override this in a child theme, then include a file
+				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+				 */
+				get_template_part( 'template-parts/content', get_post_format() );
+
+			endwhile;
+
+			the_posts_navigation();
+
+		else :
+
+			get_template_part( 'template-parts/content', 'none' );
+
+		endif; ?>
+
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
 
 <?php get_footer(); ?>
