@@ -1,10 +1,21 @@
-/*
-Theme Name: Meera
-Theme URI: http://
-Description: Wordpress theme focusing portfolio site
-Author: Raisul , Julker
-Author URI: http://
-Version: 0.0.10
-License: MIT License
-License URI: http://opensource.org/licenses/MIT
+/*!
+Theme Name: meera
+Theme URI: http://#/
+Author: raisul.me
+Author URI: http://#/
+Description: Description
+Version: 1.0.1
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: meera
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+meera is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */

@@ -1,11 +1,11 @@
 <?php
 /**
-* Jetpack Compitibility file
-*
-* @link https://jetpack.com/
-*
-* @package meera
-*/
+ * Jetpack Compatibility File
+ *
+ * @link https://jetpack.com/
+ *
+ * @package meera
+ */
 
 /**
  * Jetpack setup function.
@@ -53,7 +53,7 @@ function meera_infinite_scroll_render() {
 		if ( is_search() ) :
 			get_template_part( 'template-parts/content', 'search' );
 		else :
-			get_template_part( 'template-parts/content', get_post_format() );
+			get_template_part( 'template-parts/content', get_post_type() );
 		endif;
 	}
 }

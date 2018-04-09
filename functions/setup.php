@@ -26,10 +26,7 @@ function meera_setup() {
 		 */
 		add_theme_support( 'title-tag' );
 
-		//Allows theme developers to link a custom stylesheet file to the TinyMCE visual editor.
-		add_editor_style('theme/css/editor-style.css');
-
-		/*
+				/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
@@ -53,6 +50,15 @@ function meera_setup() {
 			'caption',
 		) );
 
+		// Set up the WordPress core custom background feature.
+		add_theme_support( 'custom-background', apply_filters( 'meera_custom_background_args', array(
+			'default-color' => 'ffffff',
+			'default-image' => '',
+		) ) );
+
+		// Add theme support for selective refresh for widgets.
+		add_theme_support( 'customize-selective-refresh-widgets' );
+
 		/**
 		 * Add support for core custom logo.
 		 *
@@ -63,7 +69,7 @@ function meera_setup() {
 			'width'       => 250,
 			'flex-width'  => true,
 			'flex-height' => true,
-			) );
+		) );
 
 }
 endif;
