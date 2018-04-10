@@ -18,7 +18,7 @@ function meera_enqueues() {
 
 	/* Scripts */
 
-	//wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'jquery' );
 	/* Note: this enqueue above uses WordPress's onboard jQuery. You can enqueue other pre-registered scripts from WordPress too. See:
 	https://developer.wordpress.org/reference/functions/wp_enqueue_script/#Default_Scripts_Included_and_Registered_by_WordPress */
 
@@ -34,13 +34,13 @@ function meera_enqueues() {
 	wp_register_script('fontawesome',  'https://use.fontawesome.com/releases/v5.0.9/js/all.js', false, '5.0.9', true);
 	wp_enqueue_script('fontawesome');
 
-	wp_enqueue_script( 'meera-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
+	//wp_enqueue_script( 'meera-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'meera-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
+	//wp_enqueue_script( 'meera-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 
-	wp_register_script('jquery-js', get_template_directory_uri() . '/assets/js/jquery-3.3.1.min.js', false, null, true);
-	wp_enqueue_script('jquery-js');
+	//wp_register_script('jquery-js', get_template_directory_uri() . '/assets/js/jquery-3.3.1.min.js', false, null, true);
+	//wp_enqueue_script('jquery-js');
 
 	wp_register_script('meera-js', get_template_directory_uri() . '/assets/js/meera.js', false, null, true);
 	wp_enqueue_script('meera-js');
