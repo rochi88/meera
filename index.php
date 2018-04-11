@@ -16,11 +16,10 @@
 
 get_header();
 ?>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-
-		<?php
+	<div class="overlay overlay-bg"></div>
+	<div class="container">
+	<div class="row fullscreen justify-content-center align-items-center">
+	<?php
 		if ( have_posts() ) :
 
 			if ( is_home() && ! is_front_page() ) :
@@ -52,9 +51,10 @@ get_header();
 
 		endif;
 		?>
+	</div>
+	</div>
+	</div>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
 
 <?php
 get_sidebar();

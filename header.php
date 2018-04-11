@@ -16,6 +16,8 @@
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<?php
 	if (isset($_SERVER['HTTP_USER_AGENT']) && (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false)) {
 		echo('<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">');
@@ -24,44 +26,32 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-	<title><?php wp_title(''); ?></title>
-
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'meera' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$meera_description = get_bloginfo( 'description', 'display' );
-			if ( $meera_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $meera_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+                   <nav class="navbar navbar-expand-lg navbar-dark indigo fixed-top scrolling-navbar">
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'meera' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="navbar-brand text-primary" id="logo"><?php bloginfo( 'name' ); ?></a>
 
-	<div id="content" class="site-content">
+                        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+						<?php
+        				wp_nav_menu( array(
+            			'theme_location'    => 'navbar',
+            			'depth'             =>  2,
+            			'container'         => false,
+            			'container_class'   => 'collapse navbar-collapse',
+            			'container_id'      => 'bs-example-navbar-collapse-1',
+            			'menu_class'        => 'nav navbar-nav mr-auto',
+            			'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+            			'walker'            => new WP_Bootstrap_Navwalker()
+						) );
+        				?>
+                        </div>
+                        
+                    </nav>

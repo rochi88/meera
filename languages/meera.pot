@@ -55,8 +55,8 @@ msgstr ""
 msgid "Theme: %1$s by %2$s."
 msgstr ""
 
-#: functions.php:47
-msgid "Primary"
+#: functions/navbar.php:61
+msgid "Navbar"
 msgstr ""
 
 #: functions.php:105
@@ -140,7 +140,7 @@ msgid "_s"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "https://underscores.me/"
+msgid "https://raisul.me/"
 msgstr ""
 
 #. Description of the plugin/theme

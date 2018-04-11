@@ -2,7 +2,7 @@
 
 Wordpress theme focusing portfolio site. This theme is inspired by '_s' Theme
 
-#Features:
+## Features:
 - Built to support the latest, stable releases of all major browsers and platforms.
 - Fully responsive HTML template created with Bootstrap 4
 - Updated design featuring two custom button styles
