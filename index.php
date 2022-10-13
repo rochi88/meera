@@ -1,5 +1,3 @@
-<?php defined( 'ABSPATH' ) OR die( 'This script cannot be accessed directly.' ); ?>
-
 <?php
 /**
  * The main template file
@@ -16,10 +14,10 @@
 
 get_header();
 ?>
-	<div class="overlay overlay-bg"></div>
-	<div class="container">
-	<div class="row fullscreen justify-content-center align-items-center">
-	<?php
+
+	<main id="primary" class="site-main">
+
+		<?php
 		if ( have_posts() ) :
 
 			if ( is_home() && ! is_front_page() ) :
@@ -51,10 +49,8 @@ get_header();
 
 		endif;
 		?>
-	</div>
-	</div>
-	</div>
 
+	</main><!-- #main -->
 
 <?php
 get_sidebar();
